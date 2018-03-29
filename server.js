@@ -2,11 +2,12 @@
 /** Set Up *****************/
 /***************************/
 
-let express        = require('express');
-let mongoose       = require('mongoose');
-let bodyParser     = require('body-parser');
-let passport       = require('passport');
-let Account        = require('./model/account');
+let express    = require('express');
+let mongoose   = require('mongoose');
+let bodyParser = require('body-parser');
+let passport   = require('passport');
+let Account    = require('./model/account');
+var cors       = require('cors');
 
 /***************************/
 /*** Config App ************/
@@ -15,6 +16,7 @@ let Account        = require('./model/account');
 var app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 app.set('json spaces', 2); // make json response 'pretty'
 
 /***************************/

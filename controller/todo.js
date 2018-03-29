@@ -76,6 +76,7 @@ router.post('/', auth.authenticate, (req, res) => {
 /************************/
 
 router.delete('/:todo_id', auth.authenticate, (req, res) => {
+  
     Todo.remove({ _id : req.params.todo_id }, function(err, review) {
 
       if (err) {

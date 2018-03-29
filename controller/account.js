@@ -14,6 +14,7 @@ let connection = database();
 /************************/
 
 router.post('/register', (req, res) => {
+
   Account.register(new Account({ username: req.body.email}), req.body.password, function(err, account) {
     if (err) {
       res.send(err);
@@ -29,8 +30,7 @@ router.post('/register', (req, res) => {
 /** Login ***************/
 /************************/
 
-router.post('/login', passport.authenticate(
-  'local', { session: false, scope: [] }), auth.generateAccessToken, auth.respond);
+router.post('/login', passport.authenticate ('local', { session: false, scope: [] }), auth.generateAccessToken, auth.respond);
 
 /************************/
 /** Logout **************/
